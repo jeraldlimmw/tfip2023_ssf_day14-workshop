@@ -1,0 +1,6 @@
+sg/edu/nus/iss/app/day14workshop/model/Contact.class
+sg/edu/nus/iss/app/day14workshop/controller/AddressBookController.class
+sg/edu/nus/iss/app/day14workshop/Day14WorkshopApplication.class
+sg/edu/nus/iss/app/day14workshop/service/AddressBookService.class
+sg/edu/nus/iss/app/day14workshop/repository/AddressBookRepository.class
+sg/edu/nus/iss/app/day14workshop/config/RedisConfig.class
