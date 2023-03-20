@@ -23,8 +23,8 @@ public class RedisConfig {
     @Value("${spring.data.redis.port}")
     private Optional<Integer> redisPort;
     
-    @Value("${spring.data.redis.username}")
-    private String redisUsername;
+    @Value("${spring.data.redis.user}")
+    private String redisUser;
 
     @Value("${spring.data.redis.password}")
     private String redisPassword;
@@ -36,8 +36,8 @@ public class RedisConfig {
         config.setHostName(redisHost);
         config.setPort(redisPort.get());
 
-        if(!redisUsername.isEmpty() && !redisPassword.isEmpty()){
-            config.setUsername(redisUsername);
+        if(!redisUser.isEmpty() && !redisPassword.isEmpty()){
+            config.setUsername(redisUser);
             config.setPassword(redisPassword);
         }
         config.setDatabase(0);
@@ -58,6 +58,7 @@ public class RedisConfig {
 
         RedisSerializer<Object> objSerializer = 
                 new JdkSerializationRedisSerializer(getClass().getClassLoader());
+        // to store Java obj
         r.setValueSerializer(objSerializer);
         r.setHashValueSerializer(objSerializer);
         

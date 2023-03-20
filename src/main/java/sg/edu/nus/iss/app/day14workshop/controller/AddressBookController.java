@@ -31,7 +31,7 @@ public class AddressBookController {
 
     @PostMapping
     public String saveContact(@Valid Contact contact, BindingResult binding
-        , Model model) {
+            , Model model) {
         if (binding.hasErrors()){
             return "addressbook";
         }
@@ -47,7 +47,7 @@ public class AddressBookController {
     }
 
     @GetMapping(path="/list")
-    public String getAllContacts(Model model, @RequestParam Integer startIndex) {
+    public String getAllContacts(Model model, @RequestParam (defaultValue="0") Integer startIndex) {
         List<Contact> ctcs = adrBkSvc.findAll(startIndex);
         model.addAttribute("contacts", ctcs);
         return "contacts";

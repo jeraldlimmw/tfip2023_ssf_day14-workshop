@@ -14,7 +14,6 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Past;
 import jakarta.validation.constraints.Size;
 
-// Serializable allows you to write ...
 public class Contact implements Serializable {
     @NotNull(message = "This is a mandatory field")
     @Size(min=3, max=64, message = "Name must be between 3 and 64 characters")
@@ -30,7 +29,7 @@ public class Contact implements Serializable {
 
     private String id;
 
-    @Past(message="Date of Birth must nor be in the future")
+    @Past(message="Date of Birth must not be in the future")
     @NotNull(message="Date of Birth cannot be null")
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate dateOfBirth;
@@ -96,6 +95,7 @@ public class Contact implements Serializable {
     public LocalDate getDateOfBirth() {
         return dateOfBirth;
     }
+    
     public void setDateOfBirth(LocalDate dateOfBirth) {
         int calculatedAge = 0;
         if (dateOfBirth != null){
